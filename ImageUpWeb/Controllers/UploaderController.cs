@@ -81,7 +81,7 @@ namespace ImageUpWeb.Controllers
                         }
 
                         info = new FileInfo(newFileName);
-                        FileDesc fileDesc = new FileDesc(info.Name, rootUrl + "/" + folderName + "/" + info.Name, info.Length / 1024, String.Format(rootUrl + "/{0}/{1}", folderName, info.Name), Lat, Long,info.Name.Replace(info.Extension,""));
+                        FileDesc fileDesc = new FileDesc(info.Name, rootUrl + "/" + folderName + "/" + info.Name, info.Length / 1024, String.Format("{0}/{1}", folderName, info.Name), Lat, Long,info.Name.Replace(info.Extension,""));
                         //Insert into DB
 
                         MapImage mapImage = new MapImage();
