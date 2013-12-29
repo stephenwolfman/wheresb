@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Web
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageUp.Models", "ImageUp.Models\ImageUp.Models.csproj", "{E24F0EA7-54F6-4E54-AE84-B992243C8703}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageUp.DAC", "ImageUp.DAC\ImageUp.DAC.csproj", "{F3071E42-223C-48B4-94D8-705989D84EA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageUpWeb", "ImageUpWeb\ImageUpWeb.csproj", "{20394330-510D-4E90-AFA7-CCF08E052E81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageLocation", "ImageLocation\ImageLocation.csproj", "{DE7BEF2E-E40E-4DD3-B81B-70F568C2CB00}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E24F0EA7-54F6-4E54-AE84-B992243C8703}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E24F0EA7-54F6-4E54-AE84-B992243C8703}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E24F0EA7-54F6-4E54-AE84-B992243C8703}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E24F0EA7-54F6-4E54-AE84-B992243C8703}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3071E42-223C-48B4-94D8-705989D84EA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3071E42-223C-48B4-94D8-705989D84EA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3071E42-223C-48B4-94D8-705989D84EA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3071E42-223C-48B4-94D8-705989D84EA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20394330-510D-4E90-AFA7-CCF08E052E81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20394330-510D-4E90-AFA7-CCF08E052E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20394330-510D-4E90-AFA7-CCF08E052E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20394330-510D-4E90-AFA7-CCF08E052E81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE7BEF2E-E40E-4DD3-B81B-70F568C2CB00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE7BEF2E-E40E-4DD3-B81B-70F568C2CB00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE7BEF2E-E40E-4DD3-B81B-70F568C2CB00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE7BEF2E-E40E-4DD3-B81B-70F568C2CB00}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
