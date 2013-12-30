@@ -104,7 +104,7 @@
                           ).append(
                               $(document.createElement('td')).html(item.ImageUrl)
                           ).append(
-                              $(document.createElement('td')).html('delete')
+                              $(document.createElement('td')).html('delete').bind('click', function () { DeleteMapImage(item.MapImageId); })
                           ).append(
                               $(document.createElement('td')).html()
                           )
@@ -162,6 +162,10 @@
               }
           });
       }
+      
+      function DeleteMapImage(id){
+
+      }
 
       function createMapImageJSON(id) {
           jsonObj = [];
@@ -172,6 +176,7 @@
             item["Long"] = $('#txtLong').val();
             item["Desc"] = $('#txtDesc').val();
             item["SentBy"] = $('#txtSentBy').val();
+            item["Comment"] = $('#txtComment').val();
             item["ImageUrl"] = $('#txtImageUrl').val();
 
             jsonObj.push(item);

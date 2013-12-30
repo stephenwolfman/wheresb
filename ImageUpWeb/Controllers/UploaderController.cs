@@ -23,6 +23,11 @@ namespace ImageUpWeb.Controllers
     public class UploaderController : ApiController
     {
         private string ConnectionString { get { return ConfigurationManager.ConnectionStrings["MapImage"].ConnectionString; } }
+        private string ftp { get { return ConfigurationManager.AppSettings["FTP"]; } }
+        private string ftpUser { get { return ConfigurationManager.AppSettings["FTP_USER"]; } }
+        private string ftpPwd { get { return ConfigurationManager.AppSettings["FTP_PWD"]; } }
+        private string ftpPath { get { return ConfigurationManager.AppSettings["FTP_PATH"]; } }
+        private string urlPath { get { return ConfigurationManager.AppSettings["URL_PATH"]; } }
         // GET api/uploader
         public IEnumerable<string> Get()
         {
@@ -80,6 +85,8 @@ namespace ImageUpWeb.Controllers
 
                         }
 
+                        UploadFtpFile(newFileName);
+
                         info = new FileInfo(newFileName);
                         FileDesc fileDesc = new FileDesc(info.Name, rootUrl + "/" + folderName + "/" + info.Name, info.Length / 1024, String.Format("{0}/{1}", folderName, info.Name), Lat, Long,info.Name.Replace(info.Extension,""));
                         //Insert into DB
@@ -87,7 +94,7 @@ namespace ImageUpWeb.Controllers
                         MapImage mapImage = new MapImage();
                         mapImage.Lat = Lat;
                         mapImage.Long = Long;
-                        mapImage.ImageUrl = fileDesc.imageUrl;
+                        mapImage.ImageUrl = String.Format(urlPath,info.Name);
 
                         mapImageDac.UpdateMapImage(mapImage);
                         
@@ -133,6 +140,44 @@ namespace ImageUpWeb.Controllers
 
             }
 
+        }
+
+
+        //FTP Down here
+
+        public bool UploadFtpFile(string fileName)
+        {
+
+            FtpWebRequest request;
+            try
+            {
+                string absoluteFileName = Path.GetFileName(fileName);
+
+                request = WebRequest.Create(new Uri(string.Format(@"ftp://{0}/{1}/{2}", ftp, ftpPath, absoluteFileName))) as FtpWebRequest;
+                request.Method = WebRequestMethods.Ftp.UploadFile;
+                request.UseBinary = true;
+                request.UsePassive = true;
+                request.KeepAlive = false;
+                request.Credentials = new NetworkCredential(ftpUser, ftpPwd);
+                request.ConnectionGroupName = "group";
+
+                using (FileStream fs = File.OpenRead(fileName))
+                {
+                    byte[] buffer = new byte[fs.Length];
+                    fs.Read(buffer, 0, buffer.Length);
+                    fs.Close();
+                    Stream requestStream = request.GetRequestStream();
+                    requestStream.Write(buffer, 0, buffer.Length);
+                    requestStream.Close();
+                    requestStream.Flush();
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }
