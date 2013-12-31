@@ -62,7 +62,7 @@ WheresB.prototype = {
                         var imgUrl = this.ImageUrl;
                         var comment = this.Comment;
                         var sentBy = this.SentBy;
-                        var vidUrl = this.VideoUrl;
+                        var vidUrl = this.VideoURL;
                         var contentS = '';
                         //Check the range of the map - let's do this when we have enough
                         
