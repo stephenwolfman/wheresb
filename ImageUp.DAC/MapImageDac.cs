@@ -29,7 +29,7 @@ namespace ImageUp.DAC
                 using (var connection = new SqlConnection(this.connectionString))
                 {
 
-                    mapIMageList = connection.Query<MapImage>("select MapImageId, Lat, Long, [Desc], SentBy,Comment,ImageUrl from dbo.MapImage");
+                    mapIMageList = connection.Query<MapImage>("select MapImageId, Lat, Long, [Desc], SentBy,Comment,ImageUrl,VideoURL from dbo.MapImage");
                 }
             }
             catch (Exception ex)
