@@ -201,7 +201,7 @@
     <Content Include="Scripts\wheresb.js" />
     <Content Include="wheresb.htm" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
-    <Content Include="index.html" />
+    <Content Include="MapImages.html" />
     <None Include="Scripts\jquery-1.7.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />

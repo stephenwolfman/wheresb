@@ -63,7 +63,7 @@ namespace ImageUp.DAC
             {
                 using (var connection = new SqlConnection(this.connectionString))
                 {
-                    connection.Execute("IF EXISTS(SELECT * FROM dbo.MapImage WHERE ImageUrl = @ImageUrl) BEGIN UPDATE MapImage SET Lat = @Lat, Long = @Long, [Desc] = @Desc, SentBy = @SentBy, Comment = @Comment WHERE ImageUrl = @ImageUrl END ELSE BEGIN INSERT MapImage (Lat, Long, [Desc], SentBy, Comment, ImageUrl) VALUES (@Lat, @Long, @Desc, @SentBy, @Comment, @ImageUrl) END", new { Lat = mapImage.Lat, Long = mapImage.Long, Desc = mapImage.Desc, Comment = mapImage.Comment, SentBy = mapImage.SentBy, ImageUrl = mapImage.ImageUrl });
+                    connection.Execute("IF EXISTS(SELECT * FROM dbo.MapImage WHERE MapImageId = @MapImageId) BEGIN UPDATE MapImage SET Lat = @Lat, Long = @Long, [Desc] = @Desc, SentBy = @SentBy, Comment = @Comment, ImageUrl = @ImageUrl, VideoURL = @VideoURL WHERE MapImageId = @MapImageId END ELSE BEGIN INSERT MapImage (Lat, Long, [Desc], SentBy, Comment, ImageUrl, VideoURL) VALUES (@Lat, @Long, @Desc, @SentBy, @Comment, @ImageUrl, @VideoURL) END", new {MapImageId = mapImage.MapImageId, Lat = mapImage.Lat, Long = mapImage.Long, Desc = mapImage.Desc, Comment = mapImage.Comment, SentBy = mapImage.SentBy, ImageUrl = mapImage.ImageUrl, VideoURL = mapImage.VideoURL});
                 }
             }
             catch (Exception ex)

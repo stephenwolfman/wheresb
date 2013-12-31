@@ -7,6 +7,11 @@ body {
      border-collapse: collapse;
 }
 
+#tblHMapImages tr th {
+     padding-top: 5px;
+     padding-bottom: 5px;
+}
+
 #dvImageMapDetail {
      background-color: #FFFFFF;
      border: 1px solid #FFFFFF;
@@ -22,8 +27,7 @@ body {
      margin-top: 10px;
 }
 
-#txtImageUrl {
-     border: medium none;
+#txtImageUrl, #txtVideoUrl {
      width: 250px;
 }
 
@@ -38,8 +42,9 @@ body {
      cursor: pointer;
      float: right;
 }
-#btnImageMapCancel{
-float:left;
+
+#btnImageMapCancel {
+     float: left;
 }
 
 #btnMapImageSave:hover, #btnImageMapCancel:hover {
@@ -56,7 +61,7 @@ float:left;
 }
 
 .editLink {
-    text-decoration:underline;
-    font-weight:bold;
-    cursor:pointer;
+     cursor: pointer;
+     font-weight: bold;
+     text-decoration: underline;
 }

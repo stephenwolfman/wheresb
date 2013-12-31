@@ -66,7 +66,7 @@ WheresB.prototype = {
                         var contentS = '';
                         //Check the range of the map - let's do this when we have enough
                         
-                        if(imgUrl != null)
+                        if(imgUrl != null || imgUrl == '')
                         {
                             contentS = '<div style="color:#1C573A; width:250px;"><div style="text-align:center;">' + title + '</div>' + '<div><img src="' + imgUrl.replace('../','http://www.bthedifference.org/') + '" style="width:240px;"/></div>' + '<div style="font-size:0.8em;">' + comment + '</div>' + '<div style="font-size:0.6em;">Taken by ' + sentBy + '</div></div>';
                         }

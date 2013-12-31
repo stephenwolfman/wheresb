@@ -37,6 +37,8 @@ function loadMapImages() {
                         $(document.createElement('td')).html(item.Comment)
                     ).append(
                         $(document.createElement('td')).html(item.ImageUrl)
+                    ).append(
+                        $(document.createElement('td')).html(item.VideoURL)
                     )
 
                     /*.append(
@@ -72,7 +74,16 @@ function EditMapImage(id) {
                 $('#txtSentBy').val(results[i].SentBy);
                 $('#txtComment').val(results[i].Comment);
                 $('#txtImageUrl').val(results[i].ImageUrl);
-                $('#imgMapImage').attr('src', mapUrl + results[i].ImageUrl);
+                $('#txtVideoUrl').val(results[i].VideoURL);
+                if (results[i].ImageUrl != null || results[i].ImageUrl == '') {
+                    $('#imgMapImage').attr('src', mapUrl + results[i].ImageUrl);
+                    $('#imgMapImage').show();
+                    $('#iVideo').hide();
+                } else {
+                    $('#iVideo').attr('src', results[i].VideoURL);
+                    $('#iVideo').show();
+                    $('#imgMapImage').hide();
+                }
                 $('#btnMapImageSave').data('MapImageId', results[i].MapImageId);
             }
             //Show edit
@@ -119,6 +130,7 @@ function createMapImageJSON(id) {
     item["SentBy"] = $('#txtSentBy').val();
     item["Comment"] = $('#txtComment').val();
     item["ImageUrl"] = $('#txtImageUrl').val();
+    item["VideoURL"] = $('#txtVideoUrl').val();
 
     jsonObj.push(item);
 
