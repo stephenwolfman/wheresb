@@ -1,23 +1,62 @@
-body
-{
-    font-size: 11px; 
-    font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+body {
+     font-family: "Segoe UI",Candara,"Bitstream Vera Sans","DejaVu Sans","Bitstream Vera Sans","Trebuchet MS",Verdana,"Verdana Ref",sans-serif;
+     font-size: 11px;
 }
 
-#ulbox {
-	width: 200px;
-	height: 200px;
-	border: 2px solid #DDD;
-	border-radius: 8px;
-	float: left;
-    margin:  0 20px;
-	text-align: center;
-    background: #e1e1e1;
-    border: 2px solid #808080;
+#tblMapImages {
+     border-collapse: collapse;
 }
 
-#ulbox.over {background: #3389a1;}
-ul {float: left; margin: 0;}
-ul li {border-bottom: 1px dotted #DDD; display: block; padding: 5px 0;}
-ul li span {display: block;}
-small {font-size: 11px;}
+#dvImageMapDetail {
+     background-color: #FFFFFF;
+     border: 1px solid #FFFFFF;
+     padding: 10px;
+     width: 400px;
+}
+
+#dvImageMapDetail ul {
+     list-style: none outside none;
+}
+
+#dvImageMapDetail ul li {
+     margin-top: 10px;
+}
+
+#txtImageUrl {
+     border: medium none;
+     width: 250px;
+}
+
+#imgMapImage {
+     border: 1px solid #000000;
+}
+
+#btnMapImageSave, #btnImageMapCancel {
+     background-color: #FFFFFF;
+     border: 2px solid #00492F;
+     color: #00492F;
+     cursor: pointer;
+     float: right;
+}
+#btnImageMapCancel{
+float:left;
+}
+
+#btnMapImageSave:hover, #btnImageMapCancel:hover {
+     background-color: #00492F;
+     border: 2px solid #000000;
+     color: #FFFFFF;
+     cursor: pointer;
+}
+
+#btnMapImageSave:active, #btnImageMapCancel:active {
+     border-color: #000000;
+     border-style: solid;
+     border-width: 3px 3px 1px 1px;
+}
+
+.editLink {
+    text-decoration:underline;
+    font-weight:bold;
+    cursor:pointer;
+}
