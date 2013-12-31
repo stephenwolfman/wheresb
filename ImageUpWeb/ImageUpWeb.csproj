@@ -194,6 +194,8 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\wheresb.js" />
+    <Content Include="wheresb.htm" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="index.html" />
     <None Include="Scripts\jquery-1.7.1-vsdoc.js" />

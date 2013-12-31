@@ -47,7 +47,7 @@ namespace ImageUp.DAC
                 using (var connection = new SqlConnection(this.connectionString))
                 {
 
-                    mapImageList = connection.Query<MapImage>("select MapImageId, Lat, Long, [Desc], SentBy,Comment,ImageUrl from dbo.MapImage WHERE MapImageId = @MapImageId", new { MapImageId = mapImageId });
+                    mapImageList = connection.Query<MapImage>("select MapImageId, Lat, Long, [Desc], SentBy,Comment,ImageUrl,VideoURL from dbo.MapImage WHERE MapImageId = @MapImageId", new { MapImageId = mapImageId });
                 }
             }
             catch (Exception ex)

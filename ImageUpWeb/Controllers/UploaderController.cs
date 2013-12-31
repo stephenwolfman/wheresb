@@ -128,7 +128,7 @@ namespace ImageUpWeb.Controllers
         // DELETE api/uploader/5
         public void Delete(string id)
         {
-            var folderName = "images";
+            var folderName = "upload";
             var PATH = HttpContext.Current.Server.MapPath("~/" + folderName);
             var filePath = String.Format(PATH + "\\{0}", id);
             try

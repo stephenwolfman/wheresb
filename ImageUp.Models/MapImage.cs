@@ -16,7 +16,8 @@ public class MapImage
         public string Desc {get;set;}
         public string SentBy  {get;set;}
         public string Comment  {get;set;}
-        public string ImageUrl  {get;set;}
+        public string ImageUrl { get; set; }
+        public string VideoURL { get; set; }
         
 	public MapImage()
 	{
