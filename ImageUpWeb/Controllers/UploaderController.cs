@@ -96,7 +96,7 @@ namespace ImageUpWeb.Controllers
                         mapImage.Long = Long;
                         mapImage.ImageUrl = String.Format(urlPath,info.Name);
 
-                        mapImageDac.UpdateMapImage(mapImage);
+                        fileDesc.MapImageId = mapImageDac.InsertMapImage(mapImage).MapImageId;
                         
 
                         info = null;

@@ -96,7 +96,7 @@ function UpdateMapImage(evt) {
 
     var MapImageId = $(evt).data('MapImageId');
     var json = JSON.stringify(createMapImageJSON(MapImageId));
-
+    blockUI();
 
     $.ajax({
         url: '/api/MapImages/' + MapImageId,
@@ -104,12 +104,13 @@ function UpdateMapImage(evt) {
         contentType: "application/json; charset=utf-8",
         data: json,
         success: function (results) {
-            alert("Successfully updated map image.");
+            $.unblockUI();
             //hide detail
             $('#dvImageMapDetail').popup('hide');
             loadMapImages();
         },
         error: function (error) {
+            $.unblockUI();
             alert(error);
         }
     });
@@ -149,6 +150,19 @@ function find() {
         });
 }
 
+function blockUI(){
+    $.blockUI({
+        css: {
+        border: 'none',
+        padding: '15px',
+        backgroundColor: '#000',
+        '-webkit-border-radius': '10px',
+        '-moz-border-radius': '10px',
+        opacity: .5,
+        color: '#fff'
+    }
+    });
+}
 
 function OnUpload(evt) {
     var files = $("#flMapImage").get(0).files;
@@ -158,6 +172,8 @@ function OnUpload(evt) {
             for (i = 0; i < files.length; i++) {
                 data.append("file" + i, files[i]);
             }
+            blockUI();
+
             $.ajax({
                 type: "POST",
                 url: "/api/Uploader",
@@ -165,44 +181,41 @@ function OnUpload(evt) {
                 processData: false,
                 data: data,
                 success: function (results) {
-                    alert("Successfully uploaded " + results.length + " file(s).");
+                    //alert("Successfully uploaded " + results.length + " file(s).");
                     loadMapImages();
-                    /*for (i = 0; i < results.length; i++) {
-                        //alert(results[i]);
-                        $('#spnFileName').html(results[i].name);
-                        $('#spnFileLat').html(results[i].Lat);
-                        $('#spnFileLong').html(results[i].Long);
-                        $('#imgDisplay').attr('src', results[i].imageUrl);
-                    }*/
+                    $.unblockUI();
+                    //Open edit window
+                    EditMapImage(results[0].MapImageId);
                 }
             });
         } else {
+            $.unblockUI();
             alert("This browser doesn't support HTML5 file uploads!");
         }
     }
 }
 
-function DiscardFile() {
-    var fileName = $('#spnFileName').html();
+    function DiscardFile() {
+        var fileName = $('#spnFileName').html();
 
-    var apiUrl = "api/uploader/{0}";
-    apiUrl = apiUrl.replace("{0}", fileName);
+        var apiUrl = "api/uploader/{0}";
+        apiUrl = apiUrl.replace("{0}", fileName);
 
 
-    $.ajax({
-        url: apiUrl,
-        type: 'DELETE',
-        cache: false,
-        statusCode: {
-            200: function (data) {
-            }, // Successful DELETE
-            404: function (data) {
-                alert(apiUrl + " ... Not Found");
-            }, // 404 Not Found
-            400: function (data) {
-                alert("Bad Request O");
-            } // 400 Bad Request
-        } // statusCode
-    }); // ajax call
+        $.ajax({
+            url: apiUrl,
+            type: 'DELETE',
+            cache: false,
+            statusCode: {
+                200: function (data) {
+                }, // Successful DELETE
+                404: function (data) {
+                    alert(apiUrl + " ... Not Found");
+                }, // 404 Not Found
+                400: function (data) {
+                    alert("Bad Request O");
+                } // 400 Bad Request
+            } // statusCode
+        }); // ajax call
 
-}
+    }

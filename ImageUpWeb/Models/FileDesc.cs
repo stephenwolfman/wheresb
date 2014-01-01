@@ -10,6 +10,9 @@ namespace ImageUpWeb.Models
     public class FileDesc
     {
         [DataMember]
+        public int MapImageId { get; set; }
+
+        [DataMember]
         public string name { get; set; }
 
         [DataMember]

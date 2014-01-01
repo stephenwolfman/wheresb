@@ -195,6 +195,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery.blockUI.js" />
     <Content Include="Scripts\jquery.popupoverlay.js" />
     <Content Include="Scripts\jquery.tablescroll.js" />
     <Content Include="Scripts\MapImages.js" />

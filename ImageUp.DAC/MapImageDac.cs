@@ -29,7 +29,7 @@ namespace ImageUp.DAC
                 using (var connection = new SqlConnection(this.connectionString))
                 {
 
-                    mapIMageList = connection.Query<MapImage>("select MapImageId, Lat, Long, [Desc], SentBy,Comment,ImageUrl,VideoURL from dbo.MapImage");
+                    mapIMageList = connection.Query<MapImage>("select MapImageId, Lat, Long, [Desc], SentBy,Comment,ImageUrl,VideoURL from dbo.MapImage ORDER BY MapImageId");
                 }
             }
             catch (Exception ex)
@@ -63,13 +63,31 @@ namespace ImageUp.DAC
             {
                 using (var connection = new SqlConnection(this.connectionString))
                 {
-                    connection.Execute("IF EXISTS(SELECT * FROM dbo.MapImage WHERE MapImageId = @MapImageId) BEGIN UPDATE MapImage SET Lat = @Lat, Long = @Long, [Desc] = @Desc, SentBy = @SentBy, Comment = @Comment, ImageUrl = @ImageUrl, VideoURL = @VideoURL WHERE MapImageId = @MapImageId END ELSE BEGIN INSERT MapImage (Lat, Long, [Desc], SentBy, Comment, ImageUrl, VideoURL) VALUES (@Lat, @Long, @Desc, @SentBy, @Comment, @ImageUrl, @VideoURL) END", new {MapImageId = mapImage.MapImageId, Lat = mapImage.Lat, Long = mapImage.Long, Desc = mapImage.Desc, Comment = mapImage.Comment, SentBy = mapImage.SentBy, ImageUrl = mapImage.ImageUrl, VideoURL = mapImage.VideoURL});
+                    connection.Execute("UPDATE MapImage SET Lat = @Lat, Long = @Long, [Desc] = @Desc, SentBy = @SentBy, Comment = @Comment, ImageUrl = @ImageUrl, VideoURL = @VideoURL WHERE MapImageId = @MapImageId", new {MapImageId = mapImage.MapImageId, Lat = mapImage.Lat, Long = mapImage.Long, Desc = mapImage.Desc, Comment = mapImage.Comment, SentBy = mapImage.SentBy, ImageUrl = mapImage.ImageUrl, VideoURL = mapImage.VideoURL});
                 }
             }
             catch (Exception ex)
             {
 
             }
+        }
+
+        public MapImage InsertMapImage(MapImage mapImage)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(this.connectionString))
+                {
+                    string sql = "INSERT MapImage (Lat, Long, [Desc], SentBy, Comment, ImageUrl, VideoURL) VALUES (@Lat, @Long, @Desc, @SentBy, @Comment, @ImageUrl, @VideoURL);SELECT CAST(SCOPE_IDENTITY() as int)";
+                    mapImage.MapImageId = connection.Query<int>(sql,  new { MapImageId = mapImage.MapImageId, Lat = mapImage.Lat, Long = mapImage.Long, Desc = mapImage.Desc, Comment = mapImage.Comment, SentBy = mapImage.SentBy, ImageUrl = mapImage.ImageUrl, VideoURL = mapImage.VideoURL }).Single();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return mapImage;
         }
     }
 }
