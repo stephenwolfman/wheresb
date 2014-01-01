@@ -58,7 +58,8 @@ function formatItem(item) {
 }
 
 function EditMapImage(id) {
-
+    $('#imgMapImage').attr('src', '');
+    $('#iVideo').attr('src', '');
     var uri = 'api/MapImages/{0}';
     uri = uri.replace('{0}', id);
     $.ajax({
@@ -114,6 +115,8 @@ function UpdateMapImage(evt) {
             alert(error);
         }
     });
+    $('#imgMapImage').attr('src', '');
+    $('#iVideo').attr('src', '');
 }
 
 function DeleteMapImage(id) {

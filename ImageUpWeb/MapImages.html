@@ -58,7 +58,7 @@
             <li><iframe id="iVideo" width="300" height="200"  src="" allowfullscreen="true"></iframe></li>
 
         </ul>
-        <input id="btnImageMapCancel" type="button" value="Cancel" onclick="$('#dvImageMapDetail').popup('hide');" />        
+        <input id="btnImageMapCancel" type="button" value="Cancel" onclick="$('#dvImageMapDetail').popup('hide'); $('#imgMapImage').attr('src', ''); $('#iVideo').attr('src', '');" />        
         <input id="btnMapImageSave" type="button" value="Save" onclick="UpdateMapImage(this);" />
     </div>
 
