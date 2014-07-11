@@ -19,7 +19,6 @@ var WheresB = function(){
 WheresB.prototype = {
 
 
-                            var openInfoWindow;
             initializeMap: function () {
             //var lat = 39.63398;
             //var long = -106.521015;-48.867187;
@@ -38,6 +37,7 @@ WheresB.prototype = {
             setTimeout(function(){wB.loadMarkers();},1000);
         },
         
+        var openInfoWindow;
         loadMarkers: function(){
             var mUrl = "api/MapImages";
             //var mUrl = "wheresb.json";
