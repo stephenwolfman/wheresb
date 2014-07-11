@@ -96,6 +96,7 @@ WheresB.prototype = {
                                     content: contentS
                                 });
                                 infowindow.open(bMap,marker);
+                                openInfoWindow = infowindow;
                             });
                         }
                     });
