@@ -19,6 +19,7 @@ var WheresB = function(){
 WheresB.prototype = {
 
 
+                            var openInfoWindow;
             initializeMap: function () {
             //var lat = 39.63398;
             //var long = -106.521015;-48.867187;
@@ -86,7 +87,6 @@ WheresB.prototype = {
                             });
 
                             var infowindow = null;
-                            var openInfoWindow;
                             var myVar = '123';
                             //Add Overlay
                             google.maps.event.addListener(marker, 'click', function() {
