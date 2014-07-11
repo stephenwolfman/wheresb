@@ -84,15 +84,18 @@ WheresB.prototype = {
                                 title:title,
                                 icon:bIcon
                             });
-                            var infowindow = new google.maps.InfoWindow({
-                                content: contentS
-                            });
+
 
                             var myVar = '123';
                             //Add Overlay
                             google.maps.event.addListener(marker, 'click', function() {
                                 _gaq.push(['_trackEvent', 'WheresB:Map', 'click', marker.title]);
-                                infowindow.close();
+                                if (infowindow) {
+                                    infowindow.close();
+                                }
+                                var infowindow = new google.maps.InfoWindow({
+                                    content: contentS
+                                });
                                 infowindow.open(bMap,marker);
                             });
                         }
