@@ -37,7 +37,6 @@ WheresB.prototype = {
             setTimeout(function(){wB.loadMarkers();},1000);
         },
         
-        var openInfoWindow;
         loadMarkers: function(){
             var mUrl = "api/MapImages";
             //var mUrl = "wheresb.json";
@@ -65,6 +64,7 @@ WheresB.prototype = {
                         var sentBy = this.SentBy;
                         var vidUrl = this.VideoURL;
                         var contentS = '';
+                        var openInfoWindow;
                         //Check the range of the map - let's do this when we have enough
                         
                         if(imgUrl != null || imgUrl == '')
