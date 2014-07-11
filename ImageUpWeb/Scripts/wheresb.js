@@ -91,7 +91,9 @@ WheresB.prototype = {
                             //Add Overlay
                             google.maps.event.addListener(marker, 'click', function() {
                                 _gaq.push(['_trackEvent', 'WheresB:Map', 'click', marker.title]);
-    
+                                if(openInfoWindow){
+                                    openInfoWindow.close();
+                                }
                                 infowindow = new google.maps.InfoWindow({
                                     content: contentS
                                 });
