@@ -97,7 +97,8 @@ WheresB.prototype = {
                                 infowindow = new google.maps.InfoWindow({
                                     content: contentS
                                 });
-                                openInfoWindow = infowindow.open(bMap,marker);
+                                openInfoWindow = infowindow;
+                                infowindow.open(bMap,marker);
                             });
                         }
                     });
