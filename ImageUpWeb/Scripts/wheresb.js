@@ -13,6 +13,7 @@ if(location.href.toLowerCase().indexOf("bthedifference.org") > 0 && location.hre
 var WheresB = function(){
     this.bMap = null;
     this.bJson = null;
+    this.infowindow = null;
     this.bIcon = 'http://www.bthedifference.org/images/BTheDiff_Logo_32.png';
 };
 
@@ -84,7 +85,7 @@ WheresB.prototype = {
                                 title:title,
                                 icon:bIcon
                             });
-                            var infowindow = new google.maps.InfoWindow({
+                            infowindow = new google.maps.InfoWindow({
                                 content: contentS
                             });
 
