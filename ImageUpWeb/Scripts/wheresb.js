@@ -13,7 +13,6 @@ if(location.href.toLowerCase().indexOf("bthedifference.org") > 0 && location.hre
 var WheresB = function(){
     this.bMap = null;
     this.bJson = null;
-    this.openInfoWindow = null;
     this.bIcon = 'http://www.bthedifference.org/images/BTheDiff_Logo_32.png';
 };
 
@@ -87,6 +86,7 @@ WheresB.prototype = {
                             });
 
                             var infowindow = null;
+                            var openInfoWindow;
                             var myVar = '123';
                             //Add Overlay
                             google.maps.event.addListener(marker, 'click', function() {
