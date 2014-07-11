@@ -13,6 +13,7 @@ if(location.href.toLowerCase().indexOf("bthedifference.org") > 0 && location.hre
 var WheresB = function(){
     this.bMap = null;
     this.bJson = null;
+    this.openInfoWindow = null;
     this.bIcon = 'http://www.bthedifference.org/images/BTheDiff_Logo_32.png';
 };
 
@@ -90,13 +91,13 @@ WheresB.prototype = {
                             //Add Overlay
                             google.maps.event.addListener(marker, 'click', function() {
                                 _gaq.push(['_trackEvent', 'WheresB:Map', 'click', marker.title]);
-                                if (infowindow) {
-                                    infowindow.close();
+                                if (openInfoWindow) {
+                                    openInfoWindow.close();
                                 }
                                 infowindow = new google.maps.InfoWindow({
                                     content: contentS
                                 });
-                                infowindow.open(bMap,marker);
+                                openInfoWindow = infowindow.open(bMap,marker);
                             });
                         }
                     });
