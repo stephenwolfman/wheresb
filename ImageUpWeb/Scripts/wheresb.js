@@ -85,7 +85,7 @@ WheresB.prototype = {
                                 icon:bIcon
                             });
 
-
+                            var infowindow = null;
                             var myVar = '123';
                             //Add Overlay
                             google.maps.event.addListener(marker, 'click', function() {
@@ -93,7 +93,7 @@ WheresB.prototype = {
                                 if (infowindow) {
                                     infowindow.close();
                                 }
-                                var infowindow = new google.maps.InfoWindow({
+                                infowindow = new google.maps.InfoWindow({
                                     content: contentS
                                 });
                                 infowindow.open(bMap,marker);
