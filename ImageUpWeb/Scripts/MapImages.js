@@ -76,7 +76,7 @@ function EditMapImage(id) {
                 $('#txtComment').val(results[i].Comment);
                 $('#txtImageUrl').val(results[i].ImageUrl);
                 $('#txtVideoUrl').val(results[i].VideoURL);
-                if (results[i].ImageUrl != null || results[i].ImageUrl == '') {
+                if ((results[i].ImageUrl != null || results[i].ImageUrl == '') && (results[i].VideoURL == null || results[i].VideoURL == '')) {
                     $('#imgMapImage').attr('src', mapUrl + results[i].ImageUrl);
                     $('#imgMapImage').show();
                     $('#iVideo').hide();
